@@ -52,7 +52,7 @@ class RecipeViewModel: ObservableObject {
                 // Handle empty data case
                 if decodedResponse.recipes.isEmpty {
                     errorMessage = "No recipes available."
-                    recipes = [] // Ensure the list is empty
+                    recipes = []
                 } else {
                     recipes = decodedResponse.recipes
                     errorMessage = nil
@@ -60,11 +60,11 @@ class RecipeViewModel: ObservableObject {
             } catch {
                 // Handle malformed JSON case
                 errorMessage = "Failed to load recipes due to bad data."
-                recipes = [] // Clear existing recipes
+                recipes = []
             }
         } catch {
             errorMessage = "Error fetching recipes: \(error.localizedDescription)"
-            recipes = [] // Ensure no stale data is shown
+            recipes = []
         }
     }
 }
